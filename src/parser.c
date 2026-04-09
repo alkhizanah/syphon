@@ -732,7 +732,7 @@ static AstNodeIdx parse_while_loop(Parser *parser) {
         block = parse_block(parser);
     } else {
         parser_error(parser, parser_peek(parser).range.start,
-                     "expected '->' or '{'\n");
+                     "expected '=>' or '{'\n");
 
         return INVALID_NODE_IDX;
     }
@@ -765,7 +765,7 @@ static AstNodeIdx parse_conditional(Parser *parser) {
         true_case = parse_block(parser);
     } else {
         parser_error(parser, parser_peek(parser).range.start,
-                     "expected '->' or '{'\n");
+                     "expected '=>' or '{'\n");
 
         return INVALID_NODE_IDX;
     }
@@ -811,7 +811,7 @@ static AstNodeIdx parse_conditional(Parser *parser) {
 
         default: {
             parser_error(parser, parser_peek(parser).range.start,
-                         "expected '->' or '{' or 'if'\n");
+                         "expected '=>' or '{' or 'if'\n");
 
             return INVALID_NODE_IDX;
         }
